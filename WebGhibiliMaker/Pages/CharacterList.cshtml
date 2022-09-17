@@ -1,0 +1,42 @@
+@page
+@model WebGhibiliMaker.Pages.CharacterListModel
+
+@{
+    ViewData["Title"] = "Character List";
+}
+
+<div class="text-center">
+    <h2 class="display-5" id="mainHeader">The Ghibili Api list</h2>
+</div>
+
+<div>
+    <table class="table table-striped" id="charactersTable">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Hair Color</th>
+            <th scope="col">Eye Color</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var hero in Model.CharacterList!)
+        {
+            <tr>
+                <th scope="row">@hero.Name</th>
+                <td>@hero.Age</td>
+                <td>@hero.Gender</td>
+                <td>@hero.HairColor</td>
+                <td>@hero.EyeColor</td>
+            </tr>
+        }
+        @*<tr>
+            <th scope="row">@Model.Character?.Name</th>
+            <td>@Model.Character?.Age</td>
+            <td>@Model.Character?.Gender</td>
+        </tr>*@
+        
+        </tbody>
+    </table>
+</div>
