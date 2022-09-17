@@ -1,0 +1,52 @@
+@page
+@model WebGhibiliMaker.Pages.HeroModel
+
+@if (Model.Character == null)
+{
+    <h2>Hero not found</h2>
+    <small>@Model.ErrorMessage</small>
+}
+else
+{
+    ViewData["Title"] = $"Hero: {Model.Character.Name}";
+
+    <div class="text-center">
+        <h2 class="display-5" id="mainHeader">@Model.Character.Name</h2>
+    </div>
+
+    <div>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>Name:</td>
+                <td>@Model.Character.Name</td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td>@Model.Character.Age</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>@Model.Character.Gender</td>
+            </tr>
+            <tr>
+                <td>Eye color:</td>
+                <td>@Model.Character.EyeColor</td>
+            </tr>
+            <tr>
+                <td>Hair color:</td>
+                <td>@Model.Character.HairColor</td>
+            </tr>
+            <tr>
+                <td>Film:</td>
+                <td>@Model.Character.FilmName</td>
+            </tr>
+            <tr>
+                <td>Species:</td>
+                <td>@Model.Character.SpeciesName</td>
+                </tr>
+            
+            </tbody>
+        </table>
+    </div>
+}

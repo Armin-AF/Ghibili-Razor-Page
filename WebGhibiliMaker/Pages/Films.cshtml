@@ -1,0 +1,37 @@
+@page
+@model WebGhibiliMaker.Pages.FilmsModel
+
+@{
+    ViewData["Title"] = "Film List";
+}
+
+<div class="text-center">
+    <h2 class="display-5" id="mainHeader">The Ghibili Films</h2>
+</div>
+
+<div>
+    <table class="table table-striped" id="FilmsTable">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Director</th>
+            <th scope="col">Rting</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Running Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var film in Model.FilmList!)
+        {
+            <tr>
+                <th scope="row">@film.Title</th>
+                <td>@film.Director</td>
+                <td>@film.RtScore</td>
+                <td>@film.ReleaseDate</td>
+                <td>@film.RunningTime</td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>
