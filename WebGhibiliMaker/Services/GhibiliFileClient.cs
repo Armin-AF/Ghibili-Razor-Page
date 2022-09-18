@@ -1,4 +1,5 @@
 using System.Reflection;
+using WebGhibiliMaker.Models;
 
 namespace WebGhibiliMaker.Services;
 
@@ -39,5 +40,13 @@ public class GhibiliFileClient : IGhibiliFileClient
             }
         }
         return "https://www.pngkey.com/png/full/147-1473883_404-error-404-not-found-png.png";
+    }
+
+    public Task<Person> ReadPersonFromFile(int id){
+        throw new NotImplementedException();
+    }
+
+    public Task<Person> WritePersonToFile(int id){
+        throw new NotImplementedException();
     }
 }
