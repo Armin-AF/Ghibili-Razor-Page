@@ -6,7 +6,7 @@
 }
 
 <div class="text-center">
-    <h2 class="display-5" id="mainHeader">The Ghibili Api list</h2>
+    <h2 class="display-5" id="mainHeader">The Ghibili Characters </h2>
 </div>
 
 <div>
@@ -16,8 +16,6 @@
             <th scope="col">Name</th>
             <th scope="col">Age</th>
             <th scope="col">Gender</th>
-            <th scope="col">Hair Color</th>
-            <th scope="col">Eye Color</th>
         </tr>
         </thead>
         <tbody>
@@ -27,17 +25,9 @@
                 <th scope="row">@hero.Name</th>
                 <td>@hero.Age</td>
                 <td>@hero.Gender</td>
-                <td>@hero.HairColor</td>
-                <td>@hero.EyeColor</td>
                 <td><a class="btn btn-primary" asp-page="/Hero" asp-route-id="@hero.Id">Details</a></td>
             </tr>
         }
-        @*<tr>
-            <th scope="row">@Model.Character?.Name</th>
-            <td>@Model.Character?.Age</td>
-            <td>@Model.Character?.Gender</td>
-        </tr>*@
-        
         </tbody>
     </table>
 </div>

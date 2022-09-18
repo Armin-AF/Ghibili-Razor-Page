@@ -11,8 +11,8 @@ public static class CharacterService
     static CharacterService(){
         Characters = new List<Character>
         {
-            new Character(){Name = "Totoro", Gender = "Unknown", Age = "2000", EyeColor = "Black", HairColor = "Black"},
-            new Character(){Name = "Ashitaka",Gender = "Male", Age = "25", EyeColor = "Brown", HairColor = "Brown"}
+            new Character(){SecondaryId = 1,Name = "Totoro", Gender = "Unknown", Age = "2000", EyeColor = "Black", HairColor = "Black"},
+            new Character(){SecondaryId = 1,Name = "Ashitaka",Gender = "Male", Age = "25", EyeColor = "Brown", HairColor = "Brown"}
         };
     }
     
@@ -20,18 +20,19 @@ public static class CharacterService
         return Characters;
     }
 
-    public static Character? Get(){
-        return Characters.FirstOrDefault();
+    public static Character? Get(int id){
+        return Characters.FirstOrDefault(p => p.SecondaryId == id);
     }
 
     public static void Add(Character character)
     {
+        character.SecondaryId = nextId++;
         Characters.Add(character);
     }
 
-    public static void Delete()
+    public static void Delete(int id)
     {
-        var character = Get();
+        var character = Get(id);
         if (character is null)
             return;
 

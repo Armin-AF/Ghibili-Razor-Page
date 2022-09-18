@@ -36,9 +36,12 @@ public class Character
     public string Species { get; set; }
    
     public string SpeciesName { get; set; }
+    
+    public string Image { get; set; }
 
     public string? FilmId => GetIdFromSwAPIUrl(Films[0]);
     public string? SpeciesId => GetIdFromSwAPIUrl(Species);
+    public int SecondaryId{ get; set; }
 
     public string GetIdFromSwAPIUrl(string url)
     {

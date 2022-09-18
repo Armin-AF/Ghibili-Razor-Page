@@ -9,12 +9,14 @@ public class CharacterApiClient : ICharacterApiClient
 {
     private IConfiguration _configuration;
     
-    public CharacterApiClient(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
+    private IGhibiliFileClient _ghibiliFileClient;
     
-    private static Task<Stream> GetHttpStreamTask(string url)
+    public CharacterApiClient(IConfiguration configuration, IGhibiliFileClient ghibiliFileClient){
+        _configuration = configuration;
+        _ghibiliFileClient = ghibiliFileClient;
+    }
+
+    static Task<Stream> GetHttpStreamTask(string url)
     {
         var client = new HttpClient();
         client.DefaultRequestHeaders.Accept.Clear();
@@ -35,6 +37,10 @@ public class CharacterApiClient : ICharacterApiClient
         if (character != null){
             character.SpeciesName = species?.Name!;
         }
+        // TODO: Get the character's image from FileClient
+        var imageForHero = await _ghibiliFileClient.GetImageForHero(character!.Id);
+        character!.Image = imageForHero;
+        
         return character;
     }
     

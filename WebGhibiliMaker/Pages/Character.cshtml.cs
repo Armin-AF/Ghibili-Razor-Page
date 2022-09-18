@@ -29,7 +29,7 @@ public class CharacterModel : PageModel
 
     public IActionResult OnPostDelete(int id)
     {
-        CharacterService.Delete();
+        CharacterService.Delete(id);
         return RedirectToAction("Get");
     }
 }
