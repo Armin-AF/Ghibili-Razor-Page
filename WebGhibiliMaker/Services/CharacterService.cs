@@ -4,29 +4,28 @@ namespace WebGhibiliMaker.Services;
 
 public static class CharacterService
 {
-    static List<Character> Characters{ get; }
+    static List<Person> Characters{ get; }
     
-    static int nextId = 3;
+    static int nextId = 2;
 
     static CharacterService(){
-        Characters = new List<Character>
+        Characters = new List<Person>
         {
-            new Character(){SecondaryId = 1,Name = "Totoro", Gender = "Unknown", Age = "2000", EyeColor = "Black", HairColor = "Black"},
-            new Character(){SecondaryId = 1,Name = "Ashitaka",Gender = "Male", Age = "25", EyeColor = "Brown", HairColor = "Brown"}
+            new Person(){Id = 1, Name = "Kattioso", Description = "A cat wondering around", Image = "https://cdn.myanimelist.net/s/common/uploaded_files/1449565334-2c3628a2d2a5ee41572f3a32713461c7.gif"},
         };
     }
     
-    public static List<Character> GetAll(){
+    public static List<Person> GetAll(){
         return Characters;
     }
 
-    public static Character? Get(int id){
-        return Characters.FirstOrDefault(p => p.SecondaryId == id);
+    public static Person? Get(int id){
+        return Characters.FirstOrDefault(p => p.Id == id);
     }
 
-    public static void Add(Character character)
+    public static void Add(Person character)
     {
-        character.SecondaryId = nextId++;
+        character.Id = nextId++;
         Characters.Add(character);
     }
 

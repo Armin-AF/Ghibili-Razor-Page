@@ -7,10 +7,10 @@ namespace WebGhibiliMaker.Pages;
 
 public class CharacterModel : PageModel
 {
-    public List<Character> Characters = new();
+    public List<Person> Characters = new();
     
     [BindProperty]
-    public Character NewCharacter { get; set; } = new();
+    public Person NewCharacter { get; set; } = new();
 
     public void OnGet()
     {
